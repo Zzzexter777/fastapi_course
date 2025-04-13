@@ -4,6 +4,11 @@ import uvicorn
 app = FastAPI()
 
 
+@app.get("/")
+async def home():
+    return "Hello Diana"
+
+
 @app.get("/users")
 async def get_users():
     return [{"id": 1, "name": "Artem"}]
@@ -11,4 +16,3 @@ async def get_users():
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000)
-
